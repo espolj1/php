@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PHP programiranje 11 zadatak</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Eduard Špoljar">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	
+	</head>
+	<body>
+	<?php
+		if(!isset($_POST['_action_']))   {$_POST['_action_'] = FALSE;}
+		if ($_POST['_action_']  == FALSE){
+		print '
+				<form action="" method="post" >
+				<input type="hidden" id="_action_" name="_action_" value="TRUE"><br>
+				<label for="a">Upišite broj:</label>
+				<input type="number" id="a" name="a" required><br>
+				<input type="submit" value="Pošalji"> 
+			</form>';
+		}
+		else if ($_POST['_action_']  == TRUE){
+			function prostiB($a) {
+				if( $a == 2 || $a == 3 || $a == 5 || $a == 7 || $a == 11
+				 || $a == 13 || $a == 19 || $a == 23 || $a == 29 || $a == 31
+				 || $a == 37 || $a == 41 || $a == 43 ||$a == 47 || $a == 53 || 
+				   $a == 59 || $a == 61 || $a == 67 || $a == 71 || $a == 73 || 
+				   $a == 79 || $a == 83 || $a == 89 || $a == 97){
+					return  "$a " . "Je prosti broj". "</br>";
+					  
+				} 
+				else{
+					return "$a " . "Nije prosti broj". "</br>";
+				}
+
+			} 
+			echo prostiB($_POST['a']);
+			print "2, 3, 5, 7, 11, 13, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97";
+			print '<p><a href="index.php?_action_=FALSE">Povratak</a></p>'; 
+			
+		}
+?>
+	</body>
+</html>
