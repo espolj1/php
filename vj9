@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>PHP programiranje vjezba 9</title>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <meta name="description" content="">
+            <meta name="keywords" content="">
+            <meta name="author" content="Eduard Špoljar">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    </head>
+<body>
+<?php
+
+
+$today = strtotime(date("l, H:i:s"));
+print "Trenutni dan i vrijeme: " . date("l, H:i:s");
+print "<br>";
+
+function radnoV($currentDate)
+    {
+        if (date('N', $currentDate) <= 5 && date('H', $currentDate) >= 8 && date('H', $currentDate) <= 20)
+        {
+            $result = "OTVORENO OD 08 DO 20.";
+        }
+        else if (date('N', $currentDate) == 6 && date('H', $currentDate) >= 8 && date('H', $currentDate) <= 15)
+        {
+            $result = "OTVORENO OD 08 DO 15.";
+        }
+        else if (date('N', $currentDate) == 7)
+        {
+            $result = "NEDJELJOM ZATVORENO.";
+        }
+        else
+        {
+            $result = "ZATVORENO";
+        }
+        return $result;
+    }
+    print radnoV($today);
+    ?>
+</body>
+</html>
